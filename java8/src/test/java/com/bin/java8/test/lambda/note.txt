@@ -1,0 +1,53 @@
+http://www.cnblogs.com/aoeiuv/p/5911692.html
+http://www.cnblogs.com/Fndroid/p/6087380.html
+
+1.1lambda表达式语法
+
+1.1.1lambda表达式的一般语法
+
+(Type1 param1, Type2 param2, ..., TypeN paramN) -> {
+  statment1;
+  statment2;
+  //.............
+  return statmentM;
+}
+这是lambda表达式的完全式语法，后面几种语法是对它的简化。
+
+1.1.2单参数语法
+
+param1 -> {
+  statment1;
+  statment2;
+  //.............
+  return statmentM;
+}
+当lambda表达式的参数个数只有一个，可以省略小括号
+
+例如：将列表中的字符串转换为全小写
+
+List<String> proNames = Arrays.asList(new String[]{"Ni","Hao","Lambda"});
+List<String> lowercaseNames1 = proNames.stream().map(name -> {return name.toLowerCase();}).collect(Collectors.toList());
+
+1.1.3单语句写法
+
+param1 -> statment
+
+当lambda表达式只包含一条语句时，可以省略大括号、return和语句结尾的分号
+
+例如：将列表中的字符串转换为全小写
+
+List<String> proNames = Arrays.asList(new String[]{"Ni","Hao","Lambda"});
+
+List<String> lowercaseNames2 = proNames.stream().map(name -> name.toLowerCase()).collect(Collectors.toList());
+
+1.1.4方法引用写法
+
+（方法引用和lambda一样是Java8新语言特性，后面会讲到）
+
+Class or instance :: method
+
+例如：将列表中的字符串转换为全小写
+
+List<String> proNames = Arrays.asList(new String[]{"Ni","Hao","Lambda"});
+
+List<String> lowercaseNames3 = proNames.stream().map(String::toLowerCase).collect(Collectors.toList());

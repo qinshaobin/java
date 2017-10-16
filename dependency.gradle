@@ -1,0 +1,29 @@
+ext {
+    versions = [
+            //compile
+            commons_lang3             = '3.6',
+            commons_collections       = '3.2.1',
+            guava                     = '22.0',
+            joda_time                 = '2.4',
+
+            //test
+            junit                     = '4.12',
+
+            //provided
+            lombok                    = '1.16.18',
+    ]
+
+    commonDependencies = [
+            //compile
+            commons_lang3          : "org.apache.commons:commons-lang3:${commons_lang3}",
+            commons_collections    : "commons-collections:commons-collections:${commons_collections}",
+            guava                  : "com.google.guava:guava:${guava}",
+            joda_time              : "joda-time:joda-time:${joda_time}",
+
+            //test
+            junit                  : "junit:junit:${junit}",
+
+            //provided
+            lombok                 : "org.projectlombok:lombok:${lombok}",
+    ]
+}

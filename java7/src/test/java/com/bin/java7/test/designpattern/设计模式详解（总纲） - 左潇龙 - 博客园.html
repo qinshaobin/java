@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>设计模式详解（总纲） - 左潇龙 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=m_FXmwz3wxZoecUwNEK23PAzc-j9vbX_C6MblJ5ouMc1"/>
+<link type="text/css" rel="stylesheet" href="/blog/customcss/160491.css?v=vAX4seU%2bhZL%2f3Hf0fnMrcQVDcOM%3d"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/zuoxiaolong/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/zuoxiaolong/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/zuoxiaolong/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'zuoxiaolong', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=E1-LyrzANB2jbN9omtnpOHx3eU0Kt3DyislfhU0b5p81" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/zuoxiaolong/">Java paradise</a></div>
+<div class="subtitle">Always on the way of programming.</div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/zuoxiaolong/">首页</a></li>
+<li id="nav_newpost"></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%B7%A6%E6%BD%87%E9%BE%99">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/zuoxiaolong/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/zuoxiaolong/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-232&nbsp;
+文章-0&nbsp;
+评论-3374&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/zuoxiaolong/p/pattern1.html">设计模式详解（总纲）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; <span style="color: #ff0000;">&nbsp;作者：zuoxiaolong8810（左潇龙），转载请注明出处，特别说明：本博文来自博主原博客，为保证新博客中博文的完整性，特复制到此留存，如需转载请注明新博客地址即可。</span></span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;最近一直在学习设计模式相关的知识，还是老规矩，和各位一起学习，一起探讨，本系列所发表所有内容仅代表个人观点。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<h2><span style="font-size: 14px;">《简介》</span></h2>
+<p><span style="font-size: 14px;">&nbsp; &nbsp;&nbsp;说到设计模式，当初第一次听到时，第一反应就是很深奥，完全理解不了这个概念到底是什么意思，下面我先从网上摘录一份定义。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; <strong>设计模式（Designpattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。</strong></span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; 上面是百度当中的解释，来解释一下这句简单的话的含义，几个关键词。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp;<strong> 反复使用</strong>：这个不用过多解释，设计模式被使用太多了，上个系列spring源码当中就出现了很多模式，记忆中比较深刻的有模板模式，代理模式，单例模式，工厂模式等等。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; <strong>多数人知晓</strong>：这个就不需要过多解释了。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; <strong>分类编目</strong>：就是说可以找到一些特征去划分这些设计模式，从而进行分类。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; <strong>代码设计经验</strong>：这句很重要，设计经验的总结，也就是说设计模式，是为了指导设计而从经验中总结出来的套路。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; 还有一种说法是说，设计模式是可以解决特定场景的问题的一系列方法，其实我觉得这个解释更贴切一点。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<h2><span style="font-size: 14px;">《为何学习设计模式》</span></h2>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;上面简单的介绍，是让各位首先搞清楚设计模式是什么，下面我们来说说为什么要学习设计模式，学习总要有个驱动力。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;有过工作经验的人都知道，特别是那些在维护一个项目的人更是体会的贴切，像我就是其中一个，有的时候，一个很简单的需求，或者说，本来应该是很快就可以实现的需求，但是由于系统当初设计的时候没有考虑这些需求的变化，或者随着需求的累加，系统越来越臃肿，导致随便修改一处都可能造成不可预料的后果，或者是我本来可以修改下配置文件或者改一处代码就可以解决的事情，结果需要修改N处代码才可以达到我的目的。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;以上都是非常可怕的后果，这些我已经深深体会过了。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<h2><span style="font-size: 14px;">《设计模式的好处及注意点》</span></h2>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;设计模式可以帮助我们改善系统的设计，增强系统的健壮性、可扩展性，为以后铺平道路。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;但是，这些是我当初第一次接触设计模式时的感受，现在我并不这么认为，设计模式可以改善系统的设计是没错，但是过多的模式也会系统变的复杂。所以当我们第一次设计一个系统时，请将你确定的变化点处理掉，不确定的变化点千万不要假设它存在，如果你曾经这么做过，那么请改变你的思维，让这些虚无的变化点在你脑子中彻底消失。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;因为我们完全可以使用另外一种手法来容纳我们的变化点，那就是重构，不过这是我们在讨论过设计模式之后的事情，现在我们就是要把这些设计模式全部理解，来锻炼我们的设计思维，而不是只做一个真正的码农。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<h2><span style="font-size: 14px;">《指导原则：六大规则》</span></h2>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;在学习设计模式之前，为了不让设计模式显得很模式，我们还必须了解一个东西，那就是程序设计六大原则。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;这些原则是指导模式的规则，我会给一些原则附上一个例子，来说明这个原则所要表达的意思，注意，原则是死的，人是活的，所以并不是要你完完全全遵守这些规则，否则为何数据库会有逆范式，只是在可能的情况下，请尽量遵守。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;<strong>单一职责原则（六大规则中的小萝莉，人见人爱）</strong>：<strong>描述的意思是每个类都只负责单一的功能，切不可太多，并且一个类应当尽量的把一个功能做到极致</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;否则当你去维护这个系统的时候，你会后悔你当初的决定，下面是我自己思索的例子，给各位参考一下，给出代码。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.BufferedReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.File;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.FileReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.IOException;
+
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Calculator {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> add() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException{
+        File file </span>= <span style="color: #0000ff;">new</span> File("E:/data.txt"<span style="color: #000000;">);
+        BufferedReader br </span>= <span style="color: #0000ff;">new</span> BufferedReader(<span style="color: #0000ff;">new</span><span style="color: #000000;"> FileReader(file));
+        </span><span style="color: #0000ff;">int</span> a =<span style="color: #000000;"> Integer.valueOf(br.readLine());
+        </span><span style="color: #0000ff;">int</span> b =<span style="color: #000000;"> Integer.valueOf(br.readLine());
+        </span><span style="color: #0000ff;">return</span> a+<span style="color: #000000;">b;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> main(String[] args) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException {
+        Calculator calculator </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Calculator();
+        System.out.println(</span>"result:" +<span style="color: #000000;"> calculator.add());
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;来看上面这个例子，这个方法的作用是从一个文件中读出两个数，并返回它们的和，我相信各位也能看出当中有明显的多职责问题。如果没看出来的话，我想问各位一句，如果我想算这个文件中两个数字的差该如何做？</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 相信答案应该是我COPY出来一个div方法，把最后的加号改成减号。好吧，那我要除法呢？乘法呢？取模呢？COPY四次吗。这就造成了很多很多的代码重复，这不符合系统设计的规则。下面我把上述程序改善一下。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 我们分离出来一个类用来读取数据，来看Reader。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> com.test;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.BufferedReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.File;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.FileReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.IOException;
+
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Reader {
+    
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> a,b;
+    
+    </span><span style="color: #0000ff;">public</span> Reader(String path) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException{
+        BufferedReader br </span>= <span style="color: #0000ff;">new</span> BufferedReader(<span style="color: #0000ff;">new</span> FileReader(<span style="color: #0000ff;">new</span><span style="color: #000000;"> File(path)));
+        a </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+        b </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getA(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> a;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getB(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> b;
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;下面是我们单独的计算器类。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> com.test;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.IOException;
+
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Calculator {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> add(<span style="color: #0000ff;">int</span> a,<span style="color: #0000ff;">int</span><span style="color: #000000;"> b){
+        </span><span style="color: #0000ff;">return</span> a +<span style="color: #000000;"> b;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> main(String[] args) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException {
+        Reader reader </span>= <span style="color: #0000ff;">new</span> Reader("E:/data.txt"<span style="color: #000000;">);
+        Calculator calculator </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Calculator();
+        System.out.println(</span>"result:" +<span style="color: #000000;"> calculator.add(reader.getA(),reader.getB()));
+    }
+    
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 我们将一个类拆成了两个类，这样以后我们如果有减法，乘法等等，就不用出现那么多重复代码了。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 以上是我临时杜撰的例子，虽然很简单，并且没有什么现实意义，但是我觉得足够表达单一职责的意思，并且也足够说明它的重要性。单一职责原则是我觉得六大原则当中最应该遵守的原则，因为我在实践过程中发现，当你在项目的开发过程中遵循它，几乎完全不会给你的系统造成任何多余的复杂性，反而会令你的程序看起来井然有序。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; <strong>里氏替换原则（六大原则中最文静的姑娘，但却不太招人喜欢）</strong>：<strong>这个原则表达的意思是一个子类应该可以替换掉父类并且可以正常工作</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 那么翻译成比较容易理解的话，就是说，子类一般不该重写父类的方法，因为父类的方法一般都是对外公布的接口，是具有不可变性的，你不该将一些不该变化的东西给修改掉。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 上述只是通常意义上的说法，很多情况下，我们不必太理解里氏替换这个文静的姑娘，比如模板方法模式，缺省适配器，装饰器模式等一些设计模式，就完全不搭理这个文静的姑娘。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 不过就算如此，如果你真的遇见了不得不重写父类方法的场景，那么请你考虑，你是否真的要把这个类作为子类出现在这里，或者说这样做所换来的是否能弥补你失去的东西，比如子类无法代替父类工作，那么就意味着如果你的父类可以在某一个场景里工作的很正常，那么你的子类当然也应该可以，否则就会出现下述场景。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; 比如我们有某一个类，其中有一个方法，调用了某一个父类的方法。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">某一个类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SomeoneClass {
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">有某一个方法，使用了一个父类类型</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> someoneMethod(Parent parent){
+        parent.method();
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;父类代码如下。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Parent {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> method(){
+        System.out.println(</span>"parent method"<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;结果我有一个子类把父类的方法给覆盖了，并且抛出了一个异常。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> SubClass <span style="color: #0000ff;">extends</span><span style="color: #000000;"> Parent{
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">结果某一个子类重写了父类的方法，说不支持该操作了</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> method() {
+        </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> UnsupportedOperationException();
+    }
+    
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这个异常是运行时才会产生的，也就是说，我的SomeoneClass并不知道会出现这种情况，结果就是我调用下面这段代码的时候，本来我们的思维是Parent都可以传给someoneMethod完成我的功能，我的SubClass继承了Parent，当然也可以了，但是最终这个调用会抛出异常。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Client {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
+        SomeoneClass someoneClass </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> SomeoneClass();
+        someoneClass.someoneMethod(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> Parent());
+        someoneClass.someoneMethod(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> SubClass());
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这就相当于埋下了一个个陷阱，因为本来我们的原则是，父类可以完成的地方，我用子类替代是绝对没有问题的，但是这下反了，我每次使用一个子类替换一个父类的时候，我还要担心这个子类有没有给我埋下一个上面这种炸弹。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;所以里氏替换原则是一个需要我们深刻理解的原则，因为往往有时候违反它我们可以得到很多，失去一小部分，但是有时候却会相反，所以要想做到活学活用，就要深刻理解这个原则的意义所在。 &nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp;&nbsp; &nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>接口隔离原则（六大原则当中最挑三拣四的挑剔女，胸部极小）</strong>：<strong>也称接口最小化原则，强调的是一个接口拥有的行为应该尽可能的小</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果你做不到这一点你经常会发现这样的状况，一个类实现了一个接口，里面很多方法都是空着的，只有个别几个方法实现了。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这样做不仅会强制实现的人不得不实现本来不该实现的方法，最严重的是会给使用者造成假象，即这个实现类拥有接口中所有的行为，结果调用方法时却没收获到想要的结果。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 比如我们设计一个手机的接口时，就要手机哪些行为是必须的，要让这个接口尽量的小，或者通俗点讲，就是里面的行为应该都是这样一种行为，就是说只要是手机，你就必须可以做到的。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 上面就是接口隔离原则这个挑剔女所挑剔的地方，假设你没有满足她，你或许会写出下面这样的手机接口。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> Mobile {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> call();<span style="color: #008000;">//</span><span style="color: #008000;">手机可以打电话</span>
+    
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> sendMessage();<span style="color: #008000;">//</span><span style="color: #008000;">手机可以发短信</span>
+    
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> playBird();<span style="color: #008000;">//</span><span style="color: #008000;">手机可以玩愤怒的小鸟？</span>
+<span style="color: #000000;">    
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;上面第三个行为明显就不是一个手机应该有的，或者说不是一个手机必须有的，那么上面这个手机的接口就不是最小接口，假设我现在的非智能手机去实现这个接口，那么playBird方法就只能空着了，因为它不能玩。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;所以我们更好的做法是去掉这个方法，让Mobile接口最小化，然后再建立下面这个接口去扩展现有的Mobile接口。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span> SmartPhone <span style="color: #0000ff;">extends</span><span style="color: #000000;"> Mobile{
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> playBird();<span style="color: #008000;">//</span><span style="color: #008000;">智能手机的接口就可以加入这个方法了</span>
+<span style="color: #000000;">    
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这样两个接口就都是最小化的了，这样我们的非智能手机就去实现Mobile接口，实现打电话和发短信的功能，而智能手机就实现SmartPhone接口，实现打电话、发短信以及玩愤怒的小鸟的功能，两者都不会有多余的要实现的方法。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;最小接口原则一般我们是要尽量满足的，如果实在有多余的方法，我们也有补救的办法，而且有的时候也确实不可避免的有一些实现类无法全部实现接口中的方法，这时候就轮到缺省适配器上场了，这个在后面再介绍。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>依赖倒置原则（六大原则中最小鸟依人的姑娘，对抽象的东西非常依赖）</strong>：<strong>这个原则描述的是高层模块不该依赖于低层模块，二者都应该依赖于抽象，抽象不应该依赖于细节，细节应该依赖于抽象</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;上面黑色加粗这句话是这个原则的原版描述，我来解释下我自己的理解，这个原则描述的是一个现实当中的事实，即实现都是易变的，而只有抽象是稳定的，所以当依赖于抽象时，实现的变化并不会影响客户端的调用。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;比如上述的计算器例子，我们的计算器其实是依赖于数据读取类的，这样做并不是很好，因为如果我的数据不是文件里的了，而是在数据库里，这样的话，为了不影响你现有的代码，你就只能将你的Reader类整个改头换面。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;或者还有一种方式就是，你再添加一个DBReader类，然后把你所有使用Reader读取的地方，全部手动替换成DBReader，这样其实也还可以接受，那假设我有的从文件读取，有的从数据库读取，有的从XML文件读取，有的从网络中读取，有的从标准的键盘输入读取等等。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;你想怎么办呢？</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;所以我们最好的做法就是抽象出一个抽象类或者是接口，来表述数据读取的行为，然后让上面所有的读取方式所实现的类都实现这个接口，而我们的客户端，只使用我们定义好的接口，当我们的实现变化时，我只需要设置不同的实际类型就可以了，这样对于系统的扩展性是一个大大的提升。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;针对上面简单的数据读取，我们可以定义如下接口去描述。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> Reader {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getA();
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getB();
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;让我们原来的Reader改名为FileReader去实现这个接口，这样计算器就依赖于抽象的接口，这个依赖是非常稳定的，因为不论你以后要从哪读取数据，你的两个获取数据的方法永远都不会变。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这样，我们让DBReader，XMLReader，NETReader，StandardOutPutStreamReader等等，都可以实现Reader这个接口，而我们的客户端调用依赖于一个Reader，这样不管数据是从哪来的，我们都可以应对自如，因为我根本不关心你是什么Reader，我只知道你能让我获得A和B这两个值就行了。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这便是我们依赖于抽象所得到的灵活性，这也是JAVA语言的动态特性给我们带来的便利，所以我们一定要好好珍惜这个依赖于抽象的姑娘。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>迪米特原则（六大原则中最害羞的姑娘，不太爱和陌生人说话）</strong>：<strong>也称最小知道原则，即一个类应该尽量不要知道其他类太多的东西，不要和陌生的类有太多接触</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个原则的制定，是因为如果一个类知道或者说是依赖于另外一个类太多细节，这样会导致耦合度过高，应该将细节全部高内聚于类的内部，其他的类只需要知道这个类主要提供的功能即可。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;所谓高内聚就是尽可能将一个类的细节全部写在这个类的内部，不要漏出来给其他类知道，否则其他类就很容易会依赖于这些细节，这样类之间的耦合度就会急速上升，这样做的后果往往是一个类随便改点东西，依赖于它的类全部都要改。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;比如我把上述的例子改变一下。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.BufferedReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.File;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.FileNotFoundException;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.FileReader;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.io.IOException;
+
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Reader {
+    
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> a,b;
+    
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String path;
+    
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> BufferedReader br;
+    
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Reader(String path){
+        </span><span style="color: #0000ff;">this</span>.path =<span style="color: #000000;"> path;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setBufferedReader() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> FileNotFoundException{
+        br </span>= <span style="color: #0000ff;">new</span> BufferedReader(<span style="color: #0000ff;">new</span> FileReader(<span style="color: #0000ff;">new</span><span style="color: #000000;"> File(path)));
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> readLine() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException{
+        a </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+        b </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getA(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> a;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getB(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> b;
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Reader类改成上述这个样子，显然它给其他的类透漏了太多细节，让别人知道了它的太多细节，这样我客户端调用的时候就很可能写成如下形式。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Client {
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> main(String[] args) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> Exception {
+        Reader reader </span>= <span style="color: #0000ff;">new</span> Reader("E:/test.txt"<span style="color: #000000;">);
+        reader.setBufferedReader();
+        reader.readLine();
+        </span><span style="color: #0000ff;">int</span> a =<span style="color: #000000;"> reader.getA();
+        </span><span style="color: #0000ff;">int</span> b =<span style="color: #000000;"> reader.getB();
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">以下用于计算等等</span>
+<span style="color: #000000;">    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这样客户端就依赖于reader的多个行为才能最终获取到A和B两个数值，这时候两个类的耦合度就太高了，我们更好的做法使用访问权限限制将二者都给隐藏起来不让外部调用的类知道这些。就像下面这样。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Reader {
+
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> a,b;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String path;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> BufferedReader br;
+    </span><span style="color: #0000ff;">public</span> Reader(String path) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> Exception{
+        </span><span style="color: #0000ff;">super</span><span style="color: #000000;">();
+        </span><span style="color: #0000ff;">this</span>.path =<span style="color: #000000;"> path;
+        setBufferedReader();
+        readLine();
+    }
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">注意，我们变为私有的方法</span>
+    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> setBufferedReader() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> FileNotFoundException{
+        br </span>= <span style="color: #0000ff;">new</span> BufferedReader(<span style="color: #0000ff;">new</span><span style="color: #000000;"> FileReader(path));
+    }
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">注意，我们变为私有的方法</span>
+    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> readLine() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> NumberFormatException, IOException{
+        a </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+        b </span>=<span style="color: #000000;"> Integer.valueOf(br.readLine());
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getA(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> a;
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getB(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> b;
+    }
+}</span></pre>
+</div>
+<p><span style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们最终将两个方法都变为私有封装在Reader类当中，这样外部的类就无法知道这两个方法了，所以迪米特原则虽说是指的一个类应当尽量不要知道其他类太多细节，但其实更重要的是一个类应当不要让外部的类知道自己太多。两者是相辅相成的，只要你将类的封装性做的很好，那么外部的类就无法依赖当中的细节。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>开-闭原则（六大原则中绝对的大姐大，另外五姐妹心甘情愿臣服）</strong>：<strong>最后一个原则，一句话，对修改关闭，对扩展开放</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;就是说我任何的改变都不需要修改原有的代码，而只需要加入一些新的实现，就可以达到我的目的，这是系统设计的理想境界，但是没有任何一个系统可以做到这一点，哪怕我一直最欣赏的spring框架也做不到，虽说它的扩展性已经强到变态。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个原则更像是前五个原则的总纲，前五个原则就是围着它转的，只要我们尽量的遵守前五个原则，那么设计出来的系统应该就比较符合开闭原则了，相反，如果你违背了太多，那么你的系统或许也不太遵循开闭原则。</span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;在《大话设计模式》一书中，提到一句话与各位共勉，我觉得很有说服力，即<strong>用抽象构建框架，用细节实现扩展</strong>。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;以上六个原则写出来是为了指导后面设计模式的描述，基本都是我自己体会出来的理解，或许当中有好有坏，有优有差，各位不需要太过在意形式的表述，完全可以有自己的理解。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;下期预告：单例模式。</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br /><br /></span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br /><br /></span></p>
+<p><span style="font-size: 14px;">&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<p><span style="font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp;</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2013-08-16 19:15</span> <a href='http://www.cnblogs.com/zuoxiaolong/'>左潇龙</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=3263076" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(3263076);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=160491,cb_entryId=3263076,cb_blogApp=currentBlogApp,cb_blogUserGuid='8834a931-b305-e311-8d02-90b11c0b17d6',cb_entryCreatedDate='2013/8/16 19:15:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 左潇龙
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

@@ -1,0 +1,46 @@
+正则表达式全部符号解释 http://www.cnblogs.com/yirlin/archive/2006/04/12/373222.html
+三种模式    http://blog.csdn.net/tianhaoya/article/details/40512877
+           http://www.cnblogs.com/naci/p/6023460.html
+正则表达式的匹配有三种模式：
+
+Greedy（贪婪的）
+Reluctant（不情愿的）
+Possessive（独占的）
+这三种模式的名字起得非常的巧妙，分别来看一下：
+
+Greedy：
+
+Pattern p = Pattern.compile("(.{3,10})([0-9])");
+String s = "aaaa5bbbb6";
+Matcher m = p.matcher(s);
+这种模式匹配的结果是“aaaa5bbbb6”，因为“贪婪的”会首先选择最大范围，即匹配10个字符
+
+匹配不成功，然后吐出最后一个字符，再次匹配成功。
+
+
+Reluctant：
+
+Pattern p = Pattern.compile("(.{3,10}?)([0-9])");
+String s = "aaaa5bbbb6";
+Matcher m = p.matcher(s);
+
+匹配的结果变成了"aaaa5"，因为“不情愿的”会首先选择最小的范围，即匹配3个字符
+
+匹配不成功会继续吃进下一个字符，直至匹配成功。
+
+
+Possessive：
+
+Pattern p = Pattern.compile("(.{3,10}+)([0-9])");
+String s = "aaaa5bbbb6";
+Matcher m = p.matcher(s);
+
+这时匹配不成功，因为独占模式更霸道！只选择吃进10个字符，而不会选择吐出字符！
+
+贪婪	　　　　	非贪婪(?)	　　　　	独占(+)
+X?	　　	　　　 X??	　　　　　　X?+
+X*	　　　　　　X*?	　　　　　　X*+
+X+	　　　　　　X+?	　　　　　  X++
+X{n}	　　　 X{n}?	　　　　    X{n}+
+X{n,}	　　　 X{n,}?	　　　　    X{n,}+
+X{n,m}	　　　 X{n,m}?	　　　　X{n,m}+
